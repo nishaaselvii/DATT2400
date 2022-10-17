@@ -1,0 +1,31 @@
+void setup() {
+  size(1000, 1000);
+  background(255);
+  ellipseMode(CENTER);
+}
+
+void draw() {
+  background(204, 227, 208);
+  ellipseMode (CENTER);
+  
+   int offset = 200;  
+   for (int i = 0; i < 100; i++) {
+  float r = random(50);
+     fill(104, 27, 234);
+      stroke(255);
+   ellipse(500, 500, 400+r, i+r);
+   
+   }
+  ellipse(500, 500, 220, 220);
+  
+
+   for (int i = 0; i < 100; i++) {
+  float r = random(50);
+  stroke(255);
+  fill(204, 227, 109);
+  
+  ellipse (500,500, 100+r, i+r);
+  fill (134, 65, 99);
+}
+  
+}
