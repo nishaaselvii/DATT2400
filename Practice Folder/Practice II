@@ -1,0 +1,28 @@
+//practice - learning rotate, Matirx and translate
+void setup() {
+  size(800, 800);
+  background(0);
+  rectMode(CENTER);
+}
+
+void draw() {
+  background(104, 227, 208);
+
+  pushMatrix();
+  translate(width/2, height/2);
+  rotate(frameCount*0.01);
+  rect(0, 0, 200, 200);
+  strokeWeight(20);
+  stroke(123, 48, 231);
+  fill(33, 199, 142);
+  popMatrix();
+
+  pushMatrix();
+  translate(width/2, height/2);
+  rotate(frameCount*0.01);
+  rect(10, 10, 20, 20);
+  strokeWeight(12);
+  stroke(33, 148, 131);
+  fill(99, 247, 183);
+  popMatrix();
+}
