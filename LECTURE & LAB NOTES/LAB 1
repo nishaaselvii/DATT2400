@@ -1,0 +1,64 @@
+//global variable - something we set up at the beginning of our code that is consistent
+// everything above void setup is a global variable as it isnt within any set parameters
+int cols = 10;
+int rows = 10;
+
+
+int stepx;
+int stepy;
+//stepx and step y dont have a value yet - defining each value of your step
+
+void setup() {
+  size(500, 500);
+
+  stepx = width / cols;
+  stepy = height / rows;
+  // give step() a value we are giving a value to the pixels
+
+  frameRate(2);
+  //frameRate = generates speed, how many times per second you want your code to update; 60 is the maximum
+  // ^if I wanted to slow down the speed in which my code generates
+  //frameRate:speed vs frameCount: counts every frame
+  ellipseMode(CORNER);
+}
+
+void draw() {
+  background(0);
+
+  for (int i=0; i < cols; i++) {
+    for (int j=0; j < rows; j++) {
+      //for (int i=0; i < 10; i++) { turned into: (int i=0; i < cols; i++) - making it dynamic
+      // for (int j=0; j < 10; j++) {..." ^ "
+      // essentially, everything being alter from this point is to make the code dynamic in the sense that when you alter the canvas or something, the other values of the code will alter itself accordingly rather than being specified for one intended value.
+      //for loops are a specific type of structure
+
+
+      float x = i*stepx;
+      float y = j*stepy;
+      //floating point variables;
+
+      // rect(x, y, stepx, stepy);
+      //^^rect(a, b, c, d)
+      //a = x-coordinate
+      //b = y-coordinate
+      //c = width of rect
+      //d = height of rect
+      stroke(255);
+      // fill(random(255), random(255), random(255));
+      //^when it was just fill(random(255) - it only showed grayscale, but when you add the BG values it became colourful
+
+      //WAYS TO TRIGGER RULES:
+
+      float randomvariable = random(10);
+      if (randomvariable > 5) {
+        rect(x, y, stepx, stepy);
+        fill(random(255), random(255), random(255));
+      } else {
+        ellipse(x, y, stepx, stepy);
+        fill(random(255), random(255), random(255));
+      }
+    }
+  }
+  //noLoop();
+  //^noLoop(); is for when you want your code to only run once - this is what you need for A1
+}
