@@ -1,0 +1,29 @@
+// modified code that does that twirly thing it did earlier but with different code outputs
+int x1 = 250;
+int y1 = 250;
+
+int speed1 = 4;
+
+int x2 = 350;
+int y2 = 350;
+
+int speed2 = 4;
+
+void setup() {
+  size(500, 500);
+  background(255);
+}
+
+void draw() {
+
+  x1 = x1+int(random(-speed1, speed1));
+  y1 = y1+int(random(-speed1, speed1));
+
+  x2 = x2+int(random(-speed2, speed2));
+  y2 = y2+int(random(-speed2, speed2));
+  ellipse(x1, y1, 10, 10);
+  ellipse(x2, y2, 10, 10);
+}
+
+void randomwalk(int xpos, int ypos, int myspeed) {
+}
