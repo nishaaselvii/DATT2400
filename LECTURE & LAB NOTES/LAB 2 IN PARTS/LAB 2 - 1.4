@@ -1,0 +1,42 @@
+//LAB ACTIVITY - experiment with stroke, strokeWeight and fill to see how you can alter the code 
+int x1 = 250;
+int y1 = 250;
+
+int speed1 = 5;
+
+int x2 = 350;
+int y2 = 350;
+
+int speed2 = 4;
+
+int x3 = 150;
+int y3 = 150;
+
+int speed3 = 4;
+
+void setup() {
+  size(500, 500);
+  background(255);
+}
+
+void draw() {
+
+  x1 = x1+int(random(-speed1, speed1));
+  y1 = y1+int(random(-speed1, speed1));
+
+  x2 = x2+int(random(-speed2, speed2));
+  y2 = y2+int(random(-speed2, speed2));
+
+  x3 = x3+int(random(-speed2, speed2));
+  y3 = y3+int(random(-speed2, speed2));
+  
+  ellipse(x1, y1, 50, 50);
+  stroke(random(255), random(255), random(255));
+  strokeWeight(0.3);
+  //fill(random(255), random(255), random(255));
+  ellipse(x2, y2, 60, 60);
+  ellipse(x3, y3, 70, 70);
+}
+
+void randomwalk(int xpos, int ypos, int myspeed) {
+}
