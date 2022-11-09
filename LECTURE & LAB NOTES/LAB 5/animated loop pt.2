@@ -1,0 +1,84 @@
+//continued at 13:44 - removed previous notations in order to add new ones without getting cluttered
+//some concepts most likely explained in animated loop pt.1 file
+//pt.2 - entails more complex functions - changing size or individual rotation of a each square
+
+void setup(){
+  size(500,500);
+  rectMode(CENTER);
+  noFill();
+  stroke(255); 
+}
+
+float rsize = 150;
+
+float rt = 0;
+
+int num = 10;
+
+float sv;
+  //sv is the scale value - corresponding to the scale that we want to work with 
+  //multiplying it by 0.01 will get a percentage thats is very tiny of that figure
+  
+void draw(){
+  background(0);
+  
+  for (int i = 0; i < num; i++) {
+  sv = sin(rt*0.01);
+  //initally this sv equation was outside of the for loop with the float sv - however it didn't have an effect
+    //if it is outside of the for loop it will only be initalized but not repeated 
+  pushMatrix();
+  translate(width/2, height/2);
+  rotate(radians(rt+(i*sv)*15));
+    //since sine is returning  a value from minus one to one, there is no drastic change 
+    //increase our i*sv but multiplying it 15 - by changing multipication factor, we've slightly scaled it down 
+    //the reason why these squares are rotating differently is because of the multiplication of i which changes everytime
+    //by instanting i, everytime the loop runs it is being multiplied by 0 1 2 3 4..or 10 - because those are the parameter set not only in the "for" loop but also the "int num"
+    
+  rect(0,0, rsize-(i*10), rsize-(i*10));
+  popMatrix();
+  }
+  
+  rt+=2;
+  
+  if(radians(rt) >=TWO_PI & sv >= 0){
+    //adding the "& sv>= 0" - will hopefully allow us to stop our loop when our rotation is bigger than 2 pi so it has done atleast one full loop 
+    //we also have met this argument which is sc is bigger than or equal to zero
+    // adding the "&" sign allows us to check for two things, in stance of if statements - when we want both statements to be true we say "&"
+    
+    noLoop();}
+    saveFrame("####_out.png");
+    //we can save out some images
+    //saveFrame uses hashtags to give a value that is a variable value 
+    //each time we update and save a new file, its going to have a different number value that will count incrementally from on upwards
+      //access .png: click on processing ID - command K: this will open up the folder 
+      //^OR go to sketch in the toolbar and click, "show sketch folder" 
+      //at this point we have a folder of images that we want to compile into a moving film or GIF
+    
+   }
+   
+//GENERAL NOTES 
+  //using sine and cosine to move between negative one and one - creating more animation in the loop - we will create a variable that can contain that - refer to "float sv"
+  //17:44 - even after multiplying our rotation by i our code is still not perfectly looped - rectangle is rotating but its not coming back to centre
+  
+//WAYS TO GENERATE GIF IN PROCESSING 
+  //go to tools bar and open "Movie Maker"
+  //you can drag a folder wiht the image files we want to make into a GIF
+    //go to processing files and open "animated loop" (specific to this code file)
+  //insert information manually 
+    // width & height - put canvas size as indicated in your void setup 
+  //click box that asks for "same size as originals"
+  //compression option - select "animated GIF (loop)"
+  //click create movie - will ask to name file: name accordingly 
+  //file will combine images
+    //once loaded, your .gif file will be in the same folder as images that saved your .pngs for said loop
+    
+//WAYS TO EXPERIMENT WITH ANIMATED LOOPS FOR GIFS (A2)
+  //sine - makes rotations a little more unique
+  //cosine - "^": changes the contraction and expansion of shape rotations
+  //central pull into the middle using the "i" value to change the size of the rectangles
+  //more objects on the screen
+    //something that interacts with another object 
+    //something that grows out of the centre of the screen 
+  //rather than rotation having your loop revolve around up and down translations
+    
+  
