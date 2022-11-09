@@ -1,0 +1,62 @@
+//this one finally does a perfect loop and reutrns to the same coordinates it starts in
+// **HOWEVER - STILL CAN'T MAKE THE ANIMATED GIF - EVEN AFTER CONVERTING IT IN MOVIE MAKER IT JUST COMES UP AS A FOLDER WITH A BUNCH OF PHOTOS
+  //^most importantly; the last photo in the .gif is still different from the first photo for some reason even though when you run the code it returns to its perfect loop
+void setup(){
+  size(500,500);
+  rectMode(CENTER);
+  noFill();
+  stroke(255); 
+}
+
+float wsize = 50;
+float hsize = 250;
+
+float spin = 0;
+
+int boxes = 10;
+
+float sv;
+  
+void draw(){
+  background(0);
+  
+  for (int i = 0; i < boxes; i++) {
+  sv = sin(spin*0.035);
+  pushMatrix();
+  translate(width/3, height/3);
+  rotate(radians(spin+(i*sv)*15));
+  rect(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(0,40,255);
+  strokeWeight(2);
+  popMatrix();
+  }
+  
+  for (int i = 0; i < boxes; i++) {
+  sv = sin(spin*0.035);
+  pushMatrix();
+  translate(width/2, height/2);
+  rotate(radians(spin+(i*sv)*15));
+  rect(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(255,3,3);
+  popMatrix();
+  }
+  
+   for (int i = 0; i < boxes; i++) {
+  sv = sin(spin*0.035);
+  pushMatrix();
+  translate(width/1.5, height/1.5);
+  rotate(radians(spin+(i*sv)*15));
+  rect(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(255,226,0);
+  popMatrix();
+  }
+  spin+=2;
+  
+  if(radians(spin) >=TWO_PI & sv >= 0){
+    noLoop();}
+    //saveFrame("####_out.png");
+    
+   }
+   
+
+  
