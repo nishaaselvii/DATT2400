@@ -1,5 +1,6 @@
 //version 2 - is a perfect loop; reduced number of boxes
 // can defintely hand this one in, want to see if you can make other one work
+//UPDATE: it aligns but it doesn't go back to its inital starting position - if transformed into gif there'll still be a jump
 void setup(){
   size(500,500);
   rectMode(CENTER);
