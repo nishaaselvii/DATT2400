@@ -1,5 +1,9 @@
 //i really like this one but i want to play around with my scale values
 //ORIGINAL - MIGHT HAND THIS ONE IN
+
+//UPDATE/EDIT: update: I forgot that my code has to end in the same position it started in order for my gif loop to look endless 
+  //so I'll have to figure out what my sv needs to be equal 
+  
 void setup(){
   size(500,500);
   rectMode(CENTER);
