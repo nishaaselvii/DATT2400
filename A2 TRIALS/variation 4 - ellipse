@@ -11,14 +11,14 @@ float hsize = 300;
 
 float spin = 0;
 
-int boxes = 10;
+int circs = 10;
 
 float sv;
   
 void draw(){
   background(0);
   
-  for (int i = 0; i < boxes; i++) {
+  for (int i = 0; i < circs; i++) {
   sv = sin(spin*0.035);
   pushMatrix();
   translate(width/3, height/3);
@@ -29,7 +29,7 @@ void draw(){
   popMatrix();
   }
   
-  for (int i = 0; i < boxes; i++) {
+  for (int i = 0; i < circs; i++) {
   sv = sin(spin*0.035);
   pushMatrix();
   translate(width/2, height/2);
@@ -39,7 +39,7 @@ void draw(){
   popMatrix();
   }
   
-   for (int i = 0; i < boxes; i++) {
+   for (int i = 0; i < circs; i++) {
   sv = sin(spin*0.035);
   pushMatrix();
   translate(width/1.5, height/1.5);
