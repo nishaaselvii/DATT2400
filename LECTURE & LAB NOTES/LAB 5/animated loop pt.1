@@ -1,0 +1,71 @@
+//LAB 5 - PRERECORDED VIDEO ON ANIMATED LOOPS - WEEK 5
+//notes up unitl 13:44 - basic animated loop with notes 
+//second part replaces some functions for complicating variables so I wanted to keep this basic one for reference
+
+
+void setup(){
+  size(500,500);
+  rectMode(CENTER);
+  noFill(); //adding in a few styling options
+  stroke(255); //"^"
+}
+
+float rsize = 150;
+
+float rt = 0;
+
+int num = 10;
+  //integer value that contains the number of squares that we're going to be drawing each loop
+  
+//global variable for roation (rt) - still doesn't do anything however - we need to insert our addition assignment - refer to rt+= below
+void draw(){
+  background(0);
+  
+  for (int i = 0; i < num; i++) {
+  pushMatrix();
+  translate(width/2, height/2);
+  //translation and rotation - the processing translation coordinates - by translating we're moving the canvas the starting point of the canvas to a new X, Y point and then we're going to rotate around this point
+  // BUT by adding translate ^^ we offset our x and y coordinate in our rect(); so we bring it back to 0 instead of rect(width/2, height/2, rsize,rsize);
+  //told our code where our new code that our canvas size has changed
+  
+  //the for(int num) statement creates an error with our translate 
+    //when we're using our rotate and translate function were are moving the position of the canvas - however in out int(num) loop - it is effectly happening 10 times
+        //to avoid this we add the push&popMatrix function
+          //by adding the push/popMatrix - we're allowing the code to run however once the translation happens, the canvas gets set back to its regular coordinates
+          //now when we run the code - all of those squares are stacked onto of one another 
+  rotate(radians(rt));
+  //every time we multiply a number by a numbr that is less than one we're reducing the number rather than multplying
+  //0.1 is going to be 10% of whatever value comes before the multiply
+  rect(0,0, rsize-(i*10), rsize-(i*10));
+  //in order to even out the stacked squares - we minus (i), but since (i) is such a small value - we also multiply it by 10
+  //now we can see the 10 squares, nicely positioned and all at the centre - just decreasing in size
+  popMatrix();
+  }
+  
+  rt+=2;
+  //where we repeatedly ass to something - it increases the value and then the next time we loop arround that new value is going to add to itself again
+  //^^has created yet another spinning rectangle however is it still continuous - need to add an EXIT CLAUSE; way of stopping our rotation
+    //try this with an if statement ^
+    //make sure to keep addition assignment outside for Loop 
+      //everytime this piece of code is called this rt+=2 - regardless if it's in this draw Loop it's going to add two to it 
+          //if it was in the int(num) loop it'll draw ten times over
+      
+    
+  if(radians(rt) >=TWO_PI){
+    noLoop();}
+    //need to work out what is the exact amount of radians of one rotation is for us - a full roation is 2Pi
+    //adding the noLoop - stops the code 
+    //loop is nearly perfect - once we get into the rendering stage where we render our image as a sequence we'll be able to see it more clearly as a perfect loop
+}
+
+//GENERAL NOTES:
+  //types of function in processing that are built to create perfect loops
+    //sin - gives us a value that maps to -1 and 1
+    //roations in radians - full rotation in processing is 2Pi radian 
+      //use value of 2Pi as a sort of limit - incrementing(adding) up until it hits at 2Pi range 
+        //cycle then stops and leaves us with a sequence of images that rotates *hoprfully* in a perfect loop
+        
+   // AFTER CREATING A ROTATION 
+     //we have something that loops and is continuous - HOWEVER - in order to have an animated sequence we need to take only a certain amount of images - other wise the file will be too long 
+       //need to take a small subset of images 
+         //make sure that our rotation start AND ENDS in the same position - can be done with GLOBAL VARIABLES
