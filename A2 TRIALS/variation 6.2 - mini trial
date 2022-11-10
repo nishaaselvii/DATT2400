@@ -1,3 +1,4 @@
+//testing how to get the perfect loop with layers ellipse
 void setup(){
   size(500,500);
   rectMode(CENTER);
