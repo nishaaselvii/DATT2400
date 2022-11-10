@@ -1,0 +1,90 @@
+void setup(){
+  size(500,500);
+  rectMode(CENTER);
+  noFill();
+  stroke(255); 
+}
+
+float wsize = 75;
+float hsize = 350;
+
+float spin = 0;
+
+int shape = 10;
+
+float sv;
+  
+void draw(){
+  background(0);
+  
+  for (int i = 0; i < shape; i++) {
+  sv = sin(spin*0.035);
+  pushMatrix();
+  translate(width/3, height/3);
+  rotate(radians(spin+(i*sv)*15));
+  ellipse(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(0,40,255);
+  strokeWeight(2);
+  popMatrix();
+  }
+ for (int i = 0; i < shape; i++) {
+  sv = cos(spin*0.001);
+  pushMatrix();
+  translate(width/3, height/3);
+  rotate(radians(spin+(i*sv)*15));
+  ellipse(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(255,132,0);
+  popMatrix();
+  }
+ 
+  
+  for (int i = 0; i < shape; i++) {
+  sv = sin(spin*0.035);
+  pushMatrix();
+  translate(width/2, height/2);
+  rotate(radians(spin+(i*sv)*15));
+  ellipse(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(255,3,3);
+  popMatrix();
+  }
+  for (int i = 0; i < shape; i++) {
+  sv = cos(spin*0.001);
+  pushMatrix();
+  translate(width/2, height/2);
+  rotate(radians(spin+(i*sv)*15));
+  ellipse(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(0,198,21);
+  popMatrix();
+  }
+  
+  
+   for (int i = 0; i < shape; i++) {
+  sv = sin(spin*0.035);
+  pushMatrix();
+  translate(width/1.5, height/1.5);
+  rotate(radians(spin+(i*sv)*15));
+  ellipse(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(255,226,0);
+  popMatrix();
+  }
+  for (int i = 0; i < shape; i++) {
+  sv = cos(spin*0.001);
+  pushMatrix();
+  translate(width/1.5, height/1.5);
+  rotate(radians(spin+(i*sv)*15));
+  ellipse(0,0, wsize-(i*10), hsize-(i*10));
+  stroke(122,0,255);
+  popMatrix();
+  }
+  
+  spin+=2;
+  
+  if(radians(spin) >=TWO_PI & sv >= 0){
+    noLoop();}
+    saveFrame("####_out.png");
+    
+   }
+   
+
+  
+  
