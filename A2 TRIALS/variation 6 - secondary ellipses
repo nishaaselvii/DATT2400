@@ -1,3 +1,4 @@
+//code has double the ellipse but its not coming up as a perfect loop - 6.2 - is my attempt to test out how to do so
 void setup(){
   size(500,500);
   rectMode(CENTER);
